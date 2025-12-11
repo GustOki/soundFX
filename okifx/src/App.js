@@ -86,22 +86,44 @@ const Okifx = () => {
   };
 
   const drawName = () => {
-  setIsAnimating(true);
-  
-  const drumrollAudio = audioRefs.current['drumroll'];
-  drumrollAudio.currentTime = 0;
-  drumrollAudio.play();
-  
-  const interval = setInterval(() => {
-    const randomIndex = Math.floor(Math.random() * availableNames.length);
-    setCurrentDraw(availableNames[randomIndex]);
-  }, 100);
-  
-  drumrollAudio.onended = () => {
-    clearInterval(interval);
-    playSound('tada');
+    if (availableNames.length === 0) return;
+
+    setIsAnimating(true);
+
+    const currentAvailable = [...availableNames];
+    const drumrollAudio = audioRefs.current['drumroll'];
+    
+    if (drumrollAudio) {
+      drumrollAudio.currentTime = 0;
+      drumrollAudio.play().catch(error => {
+        console.log('Erro ao tocar drumroll:', error);
+      });
+
+      const interval = setInterval(() => {
+        const randomIndex = Math.floor(Math.random() * currentAvailable.length);
+        setCurrentDraw(currentAvailable[randomIndex]);
+      }, 100);
+
+      drumrollAudio.onended = () => {
+        clearInterval(interval);
+
+        const finalIndex = Math.floor(Math.random() * currentAvailable.length);
+        const drawnName = currentAvailable[finalIndex];
+
+        setCurrentDraw(drawnName);
+
+        setAvailableNames(prevAvailable => 
+          prevAvailable.filter(name => name !== drawnName)
+        );
+        
+        setDrawnNames(prevDrawn => [...prevDrawn, drawnName]);
+        setIsAnimating(false);
+        setTimeout(() => {
+          playSound('tada');
+        }, 300);
+      };
+    }
   };
-};
 
   const resetAll = () => {
     const allNames = [...availableNames, ...drawnNames];
@@ -109,6 +131,9 @@ const Okifx = () => {
     setAvailableNames(allNames);
     setDrawnNames([]);
     setCurrentDraw(null);
+
+    localStorage.setItem('available-names', JSON.stringify(allNames));
+    localStorage.setItem('drawn-names', JSON.stringify([]));
   };
 
   const playSound = (type) => {
