@@ -215,8 +215,6 @@ const Okifx = () => {
       <div className='content'>
         <div className='grid'>
           <section className='card'>
-            <h2 className='card-title'>Sorteio</h2>
-
             <div className='input-group'>
               <input
                 type='text'
@@ -232,7 +230,7 @@ const Okifx = () => {
 
             <div className='section'>
               <div className='section-header'>
-                <h3 className='section-title'>Disponíveis</h3>
+                <h3 className='section-title'>Nomes:</h3>
                 <span className='badge'>{availableNames.length}</span>
               </div>
 
