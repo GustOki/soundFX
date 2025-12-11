@@ -232,29 +232,29 @@
 
 .primary-button {
   flex: 1;
-  background-color: #1a1a1a;
+  background-color: #008800;
   color: #ffffff;
 }
 
 .primary-button:hover:not(.disabled) {
-  background-color: #2a2a2a;
+  background-color: #00ad00;
 }
 
 .primary-button:active:not(.disabled) {
-  background-color: #0a0a0a;
+  background-color: #008800;
 }
 
 .secondary-button {
-  background-color: #f0f0f0;
+  background-color: #0073d1;
   color: #1a1a1a;
 }
 
 .secondary-button:hover {
-  background-color: #e0e0e0;
+  background-color: #007de4;
 }
 
 .secondary-button:active {
-  background-color: #d0d0d0;
+  background-color: #0073d1;
 }
 
 .button.disabled {
