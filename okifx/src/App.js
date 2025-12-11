@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
-const okiFX = () => {
+const Okifx = () => {
   const [nameInput, setNameInput] = useState('');
   const [availableNames, setAvailableNames] = useState([]);
   const [drawnNames, setDrawnNames] = useState([]);
@@ -209,7 +209,7 @@ const okiFX = () => {
   return(
     <div className='container'>
       <header className='header'>
-        <h1 className='title'>okiFX</h1>
+        <h1 className='title'>SORTEIO AMIGO DA ONÇA</h1>
       </header>
 
       <div className='content'>
@@ -244,7 +244,7 @@ const okiFX = () => {
                     {availableNames.map((name, index) => (
                       <div key={index} className='name-tag'>
                         <span>{name}</span>
-                        <button onClick={() => removeName(index)} className='remove-button'>X</button>
+                        <button onClick={() => removeName(index)} className='remove-button'>x</button>
                       </div>
                     ))}
                   </div>
@@ -324,4 +324,4 @@ const okiFX = () => {
   );
 };
 
-export default okiFX;
+export default Okifx;
