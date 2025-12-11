@@ -82,7 +82,7 @@ const Okifx = () => {
         saveData(newAvailable, newDrawn);
 
         setIsAnimating(false);
-        playSound('success');
+        playSound('tada');
       }
     }, 100);
   };
