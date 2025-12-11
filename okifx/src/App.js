@@ -1,504 +1,264 @@
-/* Container Principal */
-.container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0d4d2b 0%, #1a5c3a 50%, #0d4d2b 100%);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Efeito de neve caindo */
-.snowflakes {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.snowflake {
-  position: absolute;
-  top: -10%;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1.5em;
-  animation: fall linear infinite;
-}
-
-.snowflake:nth-child(1) { left: 10%; animation-duration: 10s; animation-delay: 0s; }
-.snowflake:nth-child(2) { left: 20%; animation-duration: 12s; animation-delay: 1s; }
-.snowflake:nth-child(3) { left: 30%; animation-duration: 15s; animation-delay: 2s; }
-.snowflake:nth-child(4) { left: 40%; animation-duration: 11s; animation-delay: 0.5s; }
-.snowflake:nth-child(5) { left: 50%; animation-duration: 14s; animation-delay: 1.5s; }
-.snowflake:nth-child(6) { left: 60%; animation-duration: 13s; animation-delay: 3s; }
-.snowflake:nth-child(7) { left: 70%; animation-duration: 10s; animation-delay: 2.5s; }
-.snowflake:nth-child(8) { left: 80%; animation-duration: 12s; animation-delay: 1s; }
-
-@keyframes fall {
-  to {
-    transform: translateY(105vh);
-  }
-}
-
-/* Header */
-.header {
-  background: linear-gradient(135deg, #c49b5e 0%, #8b6f3f 100%);
-  border-bottom: 3px solid #8b6f3f;
-  padding: 24px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 2;
-}
-
-.header-decoration {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.star {
-  font-size: 32px;
-  animation: twinkle 2s ease-in-out infinite;
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.1); }
-}
-
-.title {
-  margin: 0;
-  font-size: 32px;
-  font-weight: 700;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  margin: 8px 0 0 0;
-  font-size: 16px;
-  color: #ffffff;
-  font-weight: 500;
-  opacity: 0.95;
-}
-
-/* Content Area */
-.content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 16px;
-  position: relative;
-  z-index: 2;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 24px;
-}
-
-/* Card */
-.card {
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 28px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  border: 2px solid #c49b5e;
-  position: relative;
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #c49b5e, #8b6f3f, #c49b5e);
-  z-index: -1;
-  border-radius: 16px;
-  opacity: 0.3;
-}
-
-.card-title {
-  margin: 0 0 20px 0;
-  font-size: 22px;
-  font-weight: 700;
-  color: #0d4d2b;
-  text-align: center;
-}
-
-/* Input Group */
-.input-group {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.input {
-  flex: 1;
-  padding: 12px 16px;
-  font-size: 15px;
-  border: 2px solid #c49b5e;
-  border-radius: 10px;
-  outline: none;
-  transition: all 0.3s;
-  background-color: #fefefe;
-}
-
-.input:focus {
-  border-color: #8b6f3f;
-  box-shadow: 0 0 0 3px rgba(196, 155, 94, 0.2);
-}
-
-.add-button {
-  padding: 12px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  background: linear-gradient(135deg, #c49b5e 0%, #8b6f3f 100%);
-  color: #ffffff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.add-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.add-button:active {
-  transform: translateY(0);
-}
-
-/* Section */
-.section {
-  margin-bottom: 24px;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.section-title {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 700;
-  color: #0d4d2b;
-  letter-spacing: 0.5px;
-}
-
-.badge {
-  background: linear-gradient(135deg, #c49b5e 0%, #8b6f3f 100%);
-  color: #ffffff;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 700;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* List Box */
-.list-box {
-  background-color: #f9f9f9;
-  border: 2px solid #e8e8e8;
-  border-radius: 10px;
-  padding: 12px;
-  min-height: 100px;
-  max-height: 180px;
-  overflow-y: auto;
-}
-
-.list-box::-webkit-scrollbar {
-  width: 8px;
-}
-
-.list-box::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.list-box::-webkit-scrollbar-thumb {
-  background: #c49b5e;
-  border-radius: 10px;
-}
-
-.empty-text {
-  margin: 0;
-  color: #999999;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  font-style: italic;
-}
-
-/* Name List */
-.name-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.name-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-  border: 2px solid #c49b5e;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #1a1a1a;
-  transition: all 0.2s;
-}
-
-.name-tag:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.remove-button {
-  background: none;
-  border: none;
-  color: #999999;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 0;
-  width: 22px;
-  height: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-  border-radius: 50%;
-}
-
-.remove-button:hover {
-  color: #d32f2f;
-  background-color: rgba(211, 47, 47, 0.1);
-}
-
-/* Result Box */
-.result-box {
-  background: linear-gradient(135deg, #0d4d2b 0%, #1a5c3a 100%);
-  border-radius: 12px;
-  padding: 32px;
-  text-align: center;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-  border: 3px solid #c49b5e;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.result-box.animating {
-  transform: scale(1.05);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-}
-
-.result-label {
-  margin: 0 0 12px 0;
-  font-size: 14px;
-  color: #c49b5e;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.result-name {
-  margin: 0;
-  font-size: 36px;
-  font-weight: 700;
-  color: #ffd700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  animation: glow 2s ease-in-out infinite;
-}
-
-@keyframes glow {
-  0%, 100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.5); }
-  50% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.8); }
-}
-
-.result-placeholder {
-  margin: 0;
-  font-size: 16px;
-  color: #c49b5e;
-  font-style: italic;
-}
-
-/* Action Buttons */
-.action-buttons {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.button {
-  padding: 14px 28px;
-  font-size: 16px;
-  font-weight: 700;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.primary-button {
-  flex: 1;
-  background: linear-gradient(135deg, #1a5c3a 0%, #0d4d2b 100%);
-  color: #ffffff;
-}
-
-.primary-button:hover:not(.disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(135deg, #1f6b44 0%, #0f5932 100%);
-}
-
-.primary-button:active:not(.disabled) {
-  transform: translateY(0);
-}
-
-.secondary-button {
-  background: linear-gradient(135deg, #c49b5e 0%, #8b6f3f 100%);
-  color: #ffffff;
-}
-
-.secondary-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(135deg, #d4ab6e 0%, #9b7f4f 100%);
-}
-
-.secondary-button:active {
-  transform: translateY(0);
-}
-
-.button.disabled {
-  background: #cccccc;
-  color: #888888;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-/* Drawn List */
-.drawn-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.drawn-item {
-  padding: 10px 14px;
-  background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
-  border: 2px solid #e8e8e8;
-  border-left: 4px solid #c49b5e;
-  border-radius: 8px;
-  font-size: 14px;
-  color: #1a1a1a;
-  transition: all 0.2s;
-}
-
-.drawn-item:hover {
-  transform: translateX(4px);
-  border-left-color: #8b6f3f;
-}
-
-.drawn-number {
-  color: #0d4d2b;
-  margin-right: 8px;
-  font-weight: 700;
-}
-
-/* Sound Grid */
-.sound-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.sound-button {
-  padding: 24px;
-  font-size: 16px;
-  font-weight: 600;
-  background: linear-gradient(135deg, #0d4d2b 0%, #1a5c3a 100%);
-  color: #ffffff;
-  border: 2px solid #c49b5e;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.sound-button:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(135deg, #1f6b44 0%, #0f5932 100%);
-}
-
-.sound-button:active {
-  transform: translateY(-2px) scale(0.98);
-}
-
-.tip-text code {
-  background-color: rgba(196, 155, 94, 0.2);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 24px;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 600;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 2;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .title {
-    font-size: 24px;
-  }
-
-  .header-decoration {
-    gap: 10px;
-  }
-
-  .star {
-    font-size: 24px;
-  }
-
-  .content {
-    padding: 16px 12px;
-  }
-
-  .result-name {
-    font-size: 28px;
-  }
-
-  .sound-grid {
-    grid-template-columns: 1fr;
-  }
-}
+import React, { useState, useEffect, useRef } from 'react';
+import './App.css';
+
+const Okifx = () => {
+  const [nameInput, setNameInput] = useState('');
+  const [availableNames, setAvailableNames] = useState([]);
+  const [drawnNames, setDrawnNames] = useState([]);
+  const [currentDraw, setCurrentDraw] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const audioRefs = useRef({});
+
+  useEffect(() => {
+    loadData();
+    preloadAudios();
+  }, []);
+
+  useEffect(() => {
+    if (availableNames.length > 0 || drawnNames.length > 0){
+      saveData(availableNames, drawnNames);
+    }
+  }, [availableNames, drawnNames]);
+
+  const preloadAudios = () => {
+    const sounds = [
+      'airhorn',
+      'drumroll',
+      'applause',
+      'buzzer',
+      'ding',
+      'whistle',
+      'tada',
+      'success'
+    ];
+
+    sounds.forEach(sound => {
+      const audio = new Audio(`/sounds/${sound}.mp3`);
+      audio.preload = 'audio';
+      audio.load();
+      audioRefs.current[sound] = audio;
+    });
+  };
+
+  const loadData = () => {
+    try {
+      const savedAvailable = localStorage.getItem('available-names');
+      const savedDrawn = localStorage.getItem('drawn-names');
+
+      if (savedAvailable){
+        setAvailableNames(JSON.parse(savedAvailable));
+      }
+      if (savedDrawn){
+        setDrawnNames(JSON.parse(savedDrawn));
+      }
+    } catch(error) {
+      console.log('erro ao carregar dados:', error);
+    }
+  };
+
+  const saveData = (available, drawn) => {
+    try {
+      localStorage.setItem('available-names', JSON.stringify(available));
+      localStorage.setItem('drawn-names', JSON.stringify(drawn));
+    } catch(error){
+      console.log('erro ao salvar:', error);
+    }
+  };
+
+  const addName = () => {
+    if (nameInput.trim()){
+      const newAvailable = [...availableNames, nameInput.trim()];
+      setAvailableNames(newAvailable);
+      setNameInput('');
+    }
+  };
+
+  const removeName = (index) => {
+    const newAvailable = availableNames.filter((_, i) => i !== index);
+    setAvailableNames(newAvailable);
+  };
+
+  const drawName = () => {
+    if (availableNames.length === 0) return;
+
+    setIsAnimating(true);
+
+    let counter = 0;
+    const interval = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * availableNames.length);
+      setCurrentDraw(availableNames[randomIndex]);
+      counter++;
+
+      if (counter > 15) {
+        clearInterval(interval);
+
+        const finalIndex = Math.floor(Math.random() * availableNames.length);
+        const drawnName = availableNames[finalIndex];
+
+        setCurrentDraw(drawnName);
+
+        const newAvailable = availableNames.filter((_, i) => i !== finalIndex);
+        const newDrawn = [...drawnNames, drawnName];
+
+        setAvailableNames(newAvailable);
+        setDrawnNames(newDrawn);
+
+        setIsAnimating(false);
+        playSound('tada');
+      }
+    }, 100);
+  };
+
+  const resetAll = () => {
+    const allNames = [...availableNames, ...drawnNames];
+
+    setAvailableNames(allNames);
+    setDrawnNames([]);
+    setCurrentDraw(null);
+  };
+
+  const playSound = (type) => {
+    const audio = audioRefs.current[type];
+
+    if (audio){
+      audio.currentTime = 0;
+      audio.play().catch(error => {
+        console.log('erro ao tocar áudio:', error);
+      });
+    }
+  };
+
+  return(
+    <div className='container'>
+      <div className='snowflakes' aria-hidden='true'>
+        <div className='snowflake'>❅</div>
+        <div className='snowflake'>❆</div>
+        <div className='snowflake'>❅</div>
+        <div className='snowflake'>❆</div>
+        <div className='snowflake'>❅</div>
+        <div className='snowflake'>❆</div>
+        <div className='snowflake'>❅</div>
+        <div className='snowflake'>❆</div>
+      </div>
+      
+      <header className='header'>
+        <div className='header-decoration'>
+          <span className='star'>⭐</span>
+          <h1 className='title'>🎄 SORTEIO AMIGO DA ONÇA 🎄</h1>
+          <span className='star'>⭐</span>
+        </div>
+        <p className='subtitle'>ROOTS - Natal 2025</p>
+      </header>
+
+      <div className='content'>
+        <div className='grid'>
+          <section className='card'>
+            <div className='input-group'>
+              <input
+                type='text'
+                value={nameInput}
+                onChange={(e) => setNameInput(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && addName()}
+                placeholder="Digite um nome"
+                className='input'
+              />
+
+              <button onClick={addName} className='add-buton'>Adicionar</button>
+            </div>
+
+            <div className='section'>
+              <div className='section-header'>
+                <h3 className='section-title'>🎁 Participantes:</h3>
+                <span className='badge'>{availableNames.length}</span>
+              </div>
+
+              <div className='list-box'>
+                {availableNames.length === 0 ? (
+                  <p className='empty-text'>Nenhum nome adicionado</p>
+                ) : (
+                  <div className='name-list'>
+                    {availableNames.map((name, index) => (
+                      <div key={index} className='name-tag'>
+                        <span>{name}</span>
+                        <button onClick={() => removeName(index)} className='remove-button'>x</button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className='action-buttons'>
+                <button 
+                  onClick={drawName} 
+                  disabled={availableNames.length === 0}
+                  className={`button primary-button ${(availableNames.length === 0 || isAnimating) ? 'disabled' : '' }`}  
+                >🎲 Sortear</button>
+
+                <button onClick={resetAll} className='button secondary-button'>🔄 Reset</button>
+            </div>
+
+            <div className={`result-box ${isAnimating ? 'animating' : ''}`}>
+                {currentDraw ? (
+                  <div>
+                    <p className='result-label'>⭐ Sorteado ⭐</p>
+                    <p className='result-name'>{currentDraw}</p>
+                  </div>
+                ) : (
+                  <p className='result-placeholder'>Aguardando sorteio...</p>
+                )}
+            </div>
+
+            <div className='section'>
+                <div className='section-header'>
+                  <h3 className='section-title'>✅ Já sorteados:</h3>
+                  <span className='badge'>{drawnNames.length}</span>
+                </div>
+
+                <div className='list-box'>
+                  {drawnNames.length === 0 ? (
+                    <p className='empty-text'>Nenhum nome sorteado</p>
+                  ) : (
+                    <div className='drawn-list'>
+                      {drawnNames.map((name, index) => (
+                        <div key={index} className='drawn-item'>
+                          <span className='drawn-number'>{index + 1}.</span>
+                          <span>{name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+            </div>
+          </section>
+
+          <section className='card'>
+            <h2 className='card-title'>🔊SoundFX</h2>
+
+            <div className='sound-grid'>
+              {[
+                { name: '📯', type: 'airhorn' },
+                { name: '🥁', type: 'drumroll' },
+                { name: '👏', type: 'applause' },
+                { name: '❌', type: 'buzzer' },
+                { name: '🔔', type: 'ding' },
+                { name: '🎵', type: 'whistle' },
+                { name: '🎉', type: 'tada' },
+                { name: '✅', type: 'success' },
+              ].map((sound) => (
+                <button
+                  key={sound.type}
+                  onClick={() => playSound(sound.type)}
+                  className='sound-button'
+                >{sound.name}</button>
+              ))}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Okifx;
