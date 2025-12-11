@@ -73,11 +73,29 @@ const Okifx = () => {
   };
 
   const addName = () => {
-    if (nameInput.trim()){
-      const newAvailable = [...availableNames, nameInput.trim()];
-      setAvailableNames(newAvailable);
-      setNameInput('');
+    const trimmedName = nameInput.trim();
+    
+    if (!trimmedName) {
+      setErrorMessage('Digite um nome!');
+      setTimeout(() => setErrorMessage(''), 3000);
+      return;
     }
+    
+    const nameExists = availableNames.some(
+      name => name.toLowerCase() === trimmedName.toLowerCase()
+    );
+    
+    if (nameExists) {
+      setErrorMessage(`"${trimmedName}" já está na lista!`);
+      setTimeout(() => setErrorMessage(''), 3000);
+      playSound('buzzer');
+      return;
+    }
+    
+    const newAvailable = [...availableNames, trimmedName];
+    setAvailableNames(newAvailable);
+    setNameInput('');
+    playSound('ding');
   };
 
   const removeName = (index) => {
