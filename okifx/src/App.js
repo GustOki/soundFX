@@ -252,6 +252,16 @@ const Okifx = () => {
               </div>
             </div>
 
+            <div className='action-buttons'>
+                <button 
+                  onClick={drawName} 
+                  disabled={availableNames.length === 0}
+                  className={`button primary-button ${(availableNames.length === 0 || isAnimating) ? 'disabled' : '' }`}  
+                >Sortear</button>
+
+                <button onClick={resetAll} className='button secondary-button'>Reset</button>
+            </div>
+
             <div className={`result-box ${isAnimating ? 'animating' : ''}`}>
                 {currentDraw ? (
                   <div>
@@ -261,16 +271,6 @@ const Okifx = () => {
                 ) : (
                   <p className='result-placeholder'>Aguardando sorteio</p>
                 )}
-            </div>
-
-            <div className='action-buttons'>
-                <button 
-                  onClick={drawName} 
-                  disabled={availableNames.length === 0}
-                  className={`button primary-button ${(availableNames.length === 0 || isAnimating) ? 'disabled' : '' }`}  
-                >Sortear</button>
-
-                <button onClick={resetAll} className='button secondary-button'>Reset</button>
             </div>
 
             <div className='section'>
