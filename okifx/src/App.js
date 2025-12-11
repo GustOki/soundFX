@@ -5,6 +5,7 @@ const Okifx = () => {
   const [nameInput, setNameInput] = useState('');
   const [availableNames, setAvailableNames] = useState([]);
   const [drawnNames, setDrawnNames] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
   const [currentDraw, setCurrentDraw] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
 
