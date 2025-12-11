@@ -86,35 +86,22 @@ const Okifx = () => {
   };
 
   const drawName = () => {
-    if (availableNames.length === 0) return;
-
-    setIsAnimating(true);
-
-    let counter = 0;
-    const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * availableNames.length);
-      setCurrentDraw(availableNames[randomIndex]);
-      counter++;
-
-      if (counter > 15) {
-        clearInterval(interval);
-
-        const finalIndex = Math.floor(Math.random() * availableNames.length);
-        const drawnName = availableNames[finalIndex];
-
-        setCurrentDraw(drawnName);
-
-        const newAvailable = availableNames.filter((_, i) => i !== finalIndex);
-        const newDrawn = [...drawnNames, drawnName];
-
-        setAvailableNames(newAvailable);
-        setDrawnNames(newDrawn);
-
-        setIsAnimating(false);
-        playSound('tada');
-      }
-    }, 100);
+  setIsAnimating(true);
+  
+  const drumrollAudio = audioRefs.current['drumroll'];
+  drumrollAudio.currentTime = 0;
+  drumrollAudio.play();
+  
+  const interval = setInterval(() => {
+    const randomIndex = Math.floor(Math.random() * availableNames.length);
+    setCurrentDraw(availableNames[randomIndex]);
+  }, 100);
+  
+  drumrollAudio.onended = () => {
+    clearInterval(interval);
+    playSound('tada');
   };
+};
 
   const resetAll = () => {
     const allNames = [...availableNames, ...drawnNames];
