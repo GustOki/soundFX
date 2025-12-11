@@ -40,7 +40,7 @@ const Okifx = () => {
     ];
 
     sounds.forEach(sound => {
-      const audio = new Audio(`../public/sounds/${sound}.mp3`);
+      const audio = new Audio(`/sounds/${sound}.mp3`);
       audio.preload = 'audio';
       audio.load();
       audioRefs.current[sound] = audio;
