@@ -28,13 +28,19 @@ const Okifx = () => {
       'applause',
       'buzzer',
       'ding',
-      'whistle',
+      'brasil',
       'tada',
-      'success'
+      'success',
+      'fail',
+      'irra',
+      'pare',
+      'punch',
+      'rapaz',
+      'xii'
     ];
 
     sounds.forEach(sound => {
-      const audio = new Audio(`/sounds/${sound}.mp3`);
+      const audio = new Audio(`../public/sounds/${sound}.mp3`);
       audio.preload = 'audio';
       audio.load();
       audioRefs.current[sound] = audio;
@@ -243,9 +249,15 @@ const Okifx = () => {
                 { name: '👏', type: 'applause' },
                 { name: '❌', type: 'buzzer' },
                 { name: '🔔', type: 'ding' },
-                { name: '🎵', type: 'whistle' },
+                { name: '🇧🇷', type: 'brasil' },
                 { name: '🎉', type: 'tada' },
                 { name: '✅', type: 'success' },
+                { name: '👎', type: 'fail' },
+                { name: '🤠', type: 'irra' },
+                { name: '🤚', type: 'pare' },
+                { name: '👊', type: 'punch' },
+                { name: '😧', type: 'rapaz' },
+                { name: '👀', type: 'xii' },
               ].map((sound) => (
                 <button
                   key={sound.type}
